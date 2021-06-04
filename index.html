@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boton animado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#">Iniciar sesion</a>
+    <a href="#">Registrarse</a>
+    <script>
+        const botones =  document.querySelectorAll('a');
+
+        botones.forEach(btn => {
+            btn.addEventListener('click', function(e){
+
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ondas = document.createElement('span');
+                ondas.style.left = x + 'px';
+                ondas.style.top = y + 'px';
+                this.appendChild(ondas);
+
+                setTimeout(() => {
+                    ondas.remove();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
